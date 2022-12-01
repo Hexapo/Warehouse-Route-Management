@@ -9,6 +9,6 @@ Backend: Java
 Database: MySql
 
 # Project Members:<br>
-  [**Xaralampos Kostantakopoulos**] [https://github.com/XaralamposKonst] <br>
+  [**Charalampos Kostantakopoulos**] [https://github.com/XaralamposKonst] <br>
   [**Vasilis Oikonomou**] [https://github.com/VasilisOiko] <br>
   [**Apostolos Patrikios**] [https://github.com/Hexapo] <br>
