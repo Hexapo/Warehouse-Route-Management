@@ -1,6 +1,4 @@
 # Warehouse-Route-Management
-Ergasia Eidika Themata Texnologias Logismikou
-# Warehouse Route Management
 
 This is a sample project for the Route Management of a Warehouse.
 
