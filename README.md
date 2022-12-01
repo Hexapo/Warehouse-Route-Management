@@ -8,7 +8,7 @@ Backend: Java
 
 Database: MySql
 
-Project Members:
-Babis Kostantakopoulos<br>
-Vasilis Oikonomou<br>
-Apostolos Patrikios
+Project Members:<br>
+  Babis Kostantakopoulos<br>
+  Vasilis Oikonomou<br>
+  Apostolos Patrikios
