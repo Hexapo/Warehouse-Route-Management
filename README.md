@@ -6,7 +6,7 @@ Frontend: Java Swing
 
 Backend: Java
 
-ORM: Hybernate
+ORM: Hybernate [https://hibernate.org/orm/]
 
 Database: MySql
 
