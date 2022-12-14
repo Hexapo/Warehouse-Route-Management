@@ -6,6 +6,8 @@ Frontend: Java Swing
 
 Backend: Java
 
+ORM: Hybernate
+
 Database: MySql
 
 # Project Members:<br>
