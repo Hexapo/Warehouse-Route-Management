@@ -8,6 +8,8 @@ Backend: Java 8 [https://www.oracle.com/java/technologies/java8.html]
 
 ORM: Hybernate 5.6 [https://hibernate.org/orm/]
 
+Backend API: JAX-RS
+
 Database: MariaDB v10.4.25, with XAMPP 8.1.10
 
 # Project Members:<br>
