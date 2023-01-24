@@ -8,6 +8,7 @@ package projectmain;
 import java.awt.Color;
 import java.awt.Cursor;
 
+import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
@@ -52,11 +53,12 @@ public class MainGui extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 0, 45));
+        jPanel1.setBackground(new java.awt.Color(7,78,103));
 
-        RouteLPanel.setBackground(new java.awt.Color(0, 0, 45));
+        RouteLPanel.setBackground(new java.awt.Color(103,7,78));
         RouteLPanel.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -98,7 +100,7 @@ public class MainGui extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        RouteMangPanel.setBackground(new java.awt.Color(0, 0, 45));
+        RouteMangPanel.setBackground(new java.awt.Color(103,7,78));
         RouteMangPanel.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -138,7 +140,7 @@ public class MainGui extends javax.swing.JFrame {
             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        AdminPanel.setBackground(new java.awt.Color(0, 0, 45));
+        AdminPanel.setBackground(new java.awt.Color(103,7,78));
         AdminPanel.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
@@ -180,7 +182,7 @@ public class MainGui extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
-        ExitPanel.setBackground(new java.awt.Color(0, 0, 45));
+        ExitPanel.setBackground(new java.awt.Color(103,7,78));
         ExitPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ExitPanelMouseClicked(evt);
@@ -261,7 +263,7 @@ public class MainGui extends javax.swing.JFrame {
             .addGap(0, 488, Short.MAX_VALUE)
         );
 
-        jPanel3.setBackground(new java.awt.Color(255, 153, 0));
+        jPanel3.setBackground(new java.awt.Color(221, 153, 51));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectmain/op1.png"))); // NOI18N
 
@@ -302,13 +304,26 @@ public class MainGui extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        /* Add route list in jPanel2 */
+        routeList = new RouteListGui();
+        jPanel2.add(routeList);
+
+        /* Add route Management in jPanel2 */
+        routeMang = new RouteMangGui();
+        jPanel2.add(routeMang);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void hideAllSubPanels()
+    {
+        routeList.setVisible(false);
+        routeMang.setVisible(false);
+    }
 
     /* _____________Route List Panel Functions_____________ */
     private void RouteLPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RouteLPanelMouseEntered
-        Color ClickedColor = new Color(255,153,0);
+        Color ClickedColor = new Color(5,135,138);
         
         RouteLPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         evt.getComponent().setBackground(ClickedColor);
@@ -316,56 +331,58 @@ public class MainGui extends javax.swing.JFrame {
     }//GEN-LAST:event_RouteLPanelMouseEntered
 
     private void RouteLPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RouteLPanelMouseExited
-        Color Unclicked = new Color(0,0,45); 
+        Color Unclicked = new Color(103,7,78); 
         evt.getComponent().setBackground(Unclicked);
     }//GEN-LAST:event_RouteLPanelMouseExited
 
     private void RouteLPanelMouseClicked(java.awt.event.MouseEvent evt)
     {
-       
-        RouteListGui routeList = new RouteListGui();
-    
+       /* Create route list panel */
+
+        routeList.setSize(jPanel2.getSize());
+        hideAllSubPanels();
         routeList.setVisible(true);
 
-       
-        jPanel2.add(routeList);
-
-        jPanel2.setBackground(new java.awt.Color(200, 100, 200));
-
-        this.pack();
+        this.revalidate();
         System.out.println("Route List Panel");
     }
 
 
     /* _____________Route Management Functions_____________ */
     private void RouteMangPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RouteMangPanelMouseEntered
-        Color ClickedColor = new Color(255,153,0);
+        Color ClickedColor = new Color(5,135,138);
         
-        RouteLPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        RouteMangPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         evt.getComponent().setBackground(ClickedColor);
     }//GEN-LAST:event_RouteMangPanelMouseEntered
 
     private void RouteMangPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RouteMangPanelMouseExited
-        Color Unclicked = new Color(0,0,45); 
+        Color Unclicked = new Color(103,7,78); 
         evt.getComponent().setBackground(Unclicked);
     }//GEN-LAST:event_RouteMangPanelMouseExited
 
     private void RouteMangPanelMouseClicked(java.awt.event.MouseEvent evt)
     {
+
+        routeMang.setSize(jPanel2.getSize());
+        hideAllSubPanels();
+        routeMang.setVisible(true);
+        
+        this.revalidate();
         System.out.println("Route Managment Panel\n\t" + evt);
     }
 
 
     /* _____________Administrate Panel Functions_____________ */
     private void AdminPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdminPanelMouseEntered
-       Color ClickedColor = new Color(255,153,0);
+       Color ClickedColor = new Color(5,135,138);
         
-        RouteLPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        AdminPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         evt.getComponent().setBackground(ClickedColor);
     }//GEN-LAST:event_AdminPanelMouseEntered
 
     private void AdminPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_AdminPanelMouseExited
-        Color Unclicked = new Color(0,0,45); 
+        Color Unclicked = new Color(103,7,78); 
         evt.getComponent().setBackground(Unclicked);
     }//GEN-LAST:event_AdminPanelMouseExited
 
@@ -375,14 +392,14 @@ public class MainGui extends javax.swing.JFrame {
 
     /* _____________Exit Panel Functions_____________ */
     private void ExitPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitPanelMouseEntered
-        Color ClickedColor = new Color(255,153,0);
+        Color ClickedColor = new Color(5,135,138);
         
-        RouteLPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        ExitPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         evt.getComponent().setBackground(ClickedColor);
     }//GEN-LAST:event_ExitPanelMouseEntered
 
     private void ExitPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ExitPanelMouseExited
-         Color Unclicked = new Color(0,0,45); 
+         Color Unclicked = new Color(103,7,78); 
          evt.getComponent().setBackground(Unclicked);
     }//GEN-LAST:event_ExitPanelMouseExited
 
@@ -443,4 +460,6 @@ public class MainGui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
+    private RouteListGui routeList;
+    private RouteMangGui routeMang;
 }
