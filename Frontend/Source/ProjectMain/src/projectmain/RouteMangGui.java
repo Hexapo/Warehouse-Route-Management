@@ -4,10 +4,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.SpringLayout.Constraints;
+import javax.swing.Box;
+import javax.swing.JButton;
 
 import javafx.event.ActionEvent;
-
-import javax.swing.JButton;
+import java.awt.FlowLayout;
+import java.awt.Insets;
 import java.awt.GridBagLayout;
 import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
@@ -19,36 +21,60 @@ public class RouteMangGui extends JPanel
 
     private JTable routeTable;
     private JScrollPane routesScroll;
-    private JPanel routesPanel;
+    private JPanel routePanel;
+    private JPanel buttonPanel;
 
-    private JButton addRoute;
+    private JButton addRouteButton;
     private JButton removeRoute;
     private JButton saveRoute;
+
+    RouteForm form;
+    
+    /* interface for the method for exit the form */
+    public interface HideForm {
+    
+        void hideForm();
+        
+    }
 
     RouteMangGui()
     {
         super(new GridBagLayout());
  
-        /* create  */
+        /* create route object */
         route = new Route();
-
+        
+        /* table to display route data */
         routeTable = new JTable(route.getData(), route.getColumnTitles());
-
+        
         /* initialize scroll */
         routesScroll = new JScrollPane(routeTable);
+        
+        /* initialize sub-panels */
+        routePanel = new JPanel(new BorderLayout());
+        buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 80, 6));
 
-        /* initialize panel */
-        routesPanel = new JPanel(new BorderLayout());
-        routesPanel.add(routesScroll, BorderLayout.PAGE_START);
-
+        buttonPanel.setBackground(new Color(103,7,78));
+        
         /* initialize buttons */
-        addRoute = new JButton("Add");
+        addRouteButton = new JButton("Add");
         removeRoute = new JButton("Remove");
         saveRoute = new JButton("Save changes");
 
+        addRouteButton.addActionListener(event -> showFrom());
+        
+        /* add buttons to panel */
+        buttonPanel.add(addRouteButton);
+        buttonPanel.add(removeRoute);
+        
+        /* add to route table and buttons to panel */
+        routePanel.add(routesScroll, BorderLayout.CENTER);
+        routePanel.add(buttonPanel, BorderLayout.PAGE_END);
+        
         /* set color the entire panel */
         this.setBackground(new Color(103,7,78));
-
+        
+        
         /* define constraints */
         GridBagConstraints constraint = new GridBagConstraints();
 
@@ -60,32 +86,32 @@ public class RouteMangGui extends JPanel
         constraint.gridx = 0;
         constraint.weighty = 1;
         constraint.weightx = 0.5;
-        this.add(routesPanel, constraint);
+        constraint.insets = new Insets(0, 0, 0, 0);
+        this.add(routePanel, constraint);
 
-        /* place the add route button */
+
+ 
         constraint.fill = GridBagConstraints.NONE;
-        constraint.weightx = 0.9;
-        constraint.gridwidth = 1;
-        constraint.gridy = 1;
-        constraint.gridx = 0;
-
-        addRoute.addActionListener(event -> addRoute());
-        this.add(addRoute, constraint);
-
-        /* place the remove route button */
-        constraint.gridy = 1;
-        constraint.gridx = 1;
-        this.add(removeRoute, constraint);
-        
-        /* place the save changes button */
         constraint.anchor = GridBagConstraints.LAST_LINE_END;
-        constraint.gridy = 2;
+        constraint.gridy = 1;
         this.add(saveRoute, constraint);
     }
 
-    public void addRoute()
+    public class Form implements HideForm
     {
-        RouteForm form = new RouteForm();
+        @Override
+        public void hideForm()
+        {
+            remove(form);
+            routePanel.setVisible(true);
+            updateUI();
+        }
+    }
+ 
+
+    public void showFrom()
+    {
+        form = new RouteForm(new Form());
         GridBagConstraints constraint = new GridBagConstraints();
 
         constraint.fill = GridBagConstraints.HORIZONTAL;
@@ -97,9 +123,9 @@ public class RouteMangGui extends JPanel
         constraint.weightx = 0.5;
 
 
-        routesScroll.setVisible(false);
+        routePanel.setVisible(false);
 
-        this.add(form, constraint);
-        this.revalidate();
+        add(form, constraint);
+        updateUI();
     }
 }

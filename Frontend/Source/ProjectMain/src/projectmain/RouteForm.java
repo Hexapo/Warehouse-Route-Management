@@ -3,22 +3,30 @@ package projectmain;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
+import projectmain.RouteMangGui.HideForm;
+
 import java.awt.*;
-import java.awt.event.*;
+import java.lang.reflect.Method;
 
 public class RouteForm  extends JPanel
 {
 	// Components of the Form
 	private TitledBorder panelTitle;
 
+    /* driver */
 	private JLabel driverLabel;
     private JComboBox<String> driverSelect;
 
+    /* truck */
 	private JLabel truckLabel;
     private JComboBox<String> truckIDSelect;
 
+    /* shippment */
     private JLabel shippmentLabel;
     private JList<String> shippmentSelect;
+
+    /* confirm form button */
+    private JButton addButton;
 
 
     /* DATA */
@@ -32,7 +40,7 @@ public class RouteForm  extends JPanel
     private String shippment[]
         = {"shipmment 1-10", "shippment 11-14", "shippment 15-20", "shippment 21-26", "shippment 27-36"};
             
-	RouteForm()
+	RouteForm(HideForm form)
     {
 		setLayout(new GridBagLayout());
 
@@ -44,22 +52,23 @@ public class RouteForm  extends JPanel
 
   
         constraint.fill = GridBagConstraints.HORIZONTAL;
-        constraint.weightx = 1;
-        constraint.weighty = 1;
-        // constraint.gridwidth = 2;
-        constraint.weighty = 0.5;
-        constraint.ipady = 8;
-
-
-        constraint.fill = GridBagConstraints.BOTH;
-        constraint.anchor = GridBagConstraints.CENTER;
+        constraint.weightx = 0.0;
+        constraint.weighty = 0.0;
+        constraint.ipadx = 0;
+        constraint.ipady = 0;
+        constraint.gridheight = 1;
         constraint.gridwidth = 1;
-        
+        constraint.insets = new Insets(12,0,0,150);
+
+
+        /* __________DRIVER__________ */
         /* driver label */
 		driverLabel  = new JLabel("Assign Driver:");
-		driverLabel .setFont(new Font("Dialog", Font.PLAIN, 16));
+		driverLabel.setFont(new Font("Dialog", Font.PLAIN, 16));
         
-        constraint.gridy = 1;
+        
+        constraint.anchor = GridBagConstraints.LINE_START;
+        constraint.gridy = 0;
         constraint.gridx = 0;
 		add(driverLabel , constraint);
 
@@ -67,31 +76,40 @@ public class RouteForm  extends JPanel
         driverSelect = new JComboBox<String>(driver);
         driverSelect.setFont(new Font("Arial", Font.PLAIN, 15));
 
-        constraint.gridy = 1;
+        constraint.anchor = GridBagConstraints.CENTER;
+        constraint.ipadx = 75;
+        constraint.gridy = 0;
         constraint.gridx = 1;
         add(driverSelect, constraint);
 
+        /* ___________TRUCK___________ */
         /* truckID label */
 		truckLabel  = new JLabel("Truck ID:");
 		truckLabel .setFont(new Font("Dialog", Font.PLAIN, 16));
         
-     
+        constraint.anchor = GridBagConstraints.LINE_START;
+        constraint.ipadx = 0;
         constraint.gridy = 1;
-        constraint.gridx = 2;
+        constraint.gridx = 0;
 		add(truckLabel , constraint);
-
+        
         /* truckID selection */
         truckIDSelect = new JComboBox<String>(truckID);
         truckIDSelect.setFont(new Font("Arial", Font.PLAIN, 15));
-
+        
+        constraint.anchor = GridBagConstraints.CENTER;
+        constraint.ipadx = 75;
         constraint.gridy = 1;
-        constraint.gridx = 3;
+        constraint.gridx = 1;
         add(truckIDSelect, constraint);
-
+        
+        /* _________SHIPPMENT_________ */
 		/* shippment label */
         shippmentLabel = new JLabel("Shippment:");
         shippmentLabel.setFont(new Font("Arial", Font.PLAIN, 16));
 
+        constraint.anchor = GridBagConstraints.FIRST_LINE_START;
+        constraint.ipadx = 0;
         constraint.gridy = 2;
         constraint.gridx = 0;
         add(shippmentLabel, constraint);
@@ -101,19 +119,48 @@ public class RouteForm  extends JPanel
         shippmentSelect.setLayoutOrientation(JList.VERTICAL);
         shippmentSelect.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
-        constraint.gridheight = 2;
+        constraint.anchor = GridBagConstraints.CENTER;
+        constraint.ipadx = 75;
         constraint.gridy = 2;
         constraint.gridx = 1;
         add(shippmentSelect, constraint);
 
+        /* _________ADD BUTTON_________ */
+        addButton = new JButton("Add Route");
+        addButton.addActionListener(event -> addRoute(form));
+        constraint.anchor = GridBagConstraints.LAST_LINE_START;
+        constraint.ipadx = 0;
+        constraint.gridy = 3;
+        constraint.gridx = 0;
+        add(addButton, constraint);
+
 		setVisible(true);
+
         updateUI();
 	}
 
 
-	public void actionPerformed(ActionEvent e)
+	public void addRoute(HideForm form)
 	{
-		
+        if(shippmentSelect.isSelectionEmpty())
+        {            
+            JOptionPane.showMessageDialog(null, "Cannot add route: No shippment specified.");
+        }
+        else
+        {
+            System.out.println("\n[POST]:\n" +
+            "Driver: " + driverSelect.getSelectedItem() +
+            "\nTruck: " + truckIDSelect.getSelectedItem() +
+            "\nSelected items: " + shippmentSelect.getSelectedValuesList() + "\n");
+
+            try
+            {
+                form.hideForm();
+            }
+            catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 	}
 }
 

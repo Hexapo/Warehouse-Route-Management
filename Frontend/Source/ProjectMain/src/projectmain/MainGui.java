@@ -304,6 +304,9 @@ public class MainGui extends javax.swing.JFrame {
                     .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+
+
+
         /* Add route list in jPanel2 */
         routeList = new RouteListGui();
         jPanel2.add(routeList);

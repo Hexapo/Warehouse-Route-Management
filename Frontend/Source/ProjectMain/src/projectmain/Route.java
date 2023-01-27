@@ -47,7 +47,7 @@ public class Route {
             {"Vaggelis", new Integer(112), "shippment 27-36", "Transporting..."},
             {"Vaggelis", new Integer(112), "shippment 27-36", "Transporting..."},
             {"Vaggelis", new Integer(112), "shippment 27-36", "Transporting..."},
-            {"Vaggelis", new Integer(112), "shippment 27-36", "Transporting..."},
+            {"Kostas", new Integer(112), "shippment 27-36", "Transporting..."},
         };
 
         columnTitles = fetchColumnTitles;
