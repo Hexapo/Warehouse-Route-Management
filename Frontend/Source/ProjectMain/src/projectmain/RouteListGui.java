@@ -9,12 +9,11 @@ import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.ScrollPaneLayout;
 
-import javafx.geometry.Dimension2D;
 
 
 public class RouteListGui extends JPanel
 {
-    private Route route;    // Route data: comes from backend
+    private Routes routes;    // Route data: comes from backend
     /* swing components */
     private javax.swing.JTable routeTable;
     private javax.swing.JScrollPane scrollPane;
@@ -27,10 +26,12 @@ public class RouteListGui extends JPanel
     {
         super();
 
-        route = new Route();
+        routes = new Routes();
 
         /* Create table */
-        routeTable = new JTable(route.getData(), route.getColumnTitles());
+        routeTable = new JTable(routes.getRoutesAsObject(), routes.getColumnTitles());
+
+        
         routeTable.setVisible(true);
         routeTable.setEnabled(false);
         

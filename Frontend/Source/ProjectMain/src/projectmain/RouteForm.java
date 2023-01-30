@@ -3,9 +3,10 @@ package projectmain;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
-import projectmain.RouteMangGui.HideForm;
+import projectmain.RouteMangGui.HandleForm;
 
 import java.awt.*;
+import java.io.IOError;
 import java.lang.reflect.Method;
 
 public class RouteForm  extends JPanel
@@ -28,6 +29,8 @@ public class RouteForm  extends JPanel
     /* confirm form button */
     private JButton addButton;
 
+    /* cancel form button */
+    private JButton cancelButton;
 
     /* DATA */
     private String driver[]
@@ -40,7 +43,7 @@ public class RouteForm  extends JPanel
     private String shippment[]
         = {"shipmment 1-10", "shippment 11-14", "shippment 15-20", "shippment 21-26", "shippment 27-36"};
             
-	RouteForm(HideForm form)
+	RouteForm(HandleForm form)
     {
 		setLayout(new GridBagLayout());
 
@@ -57,8 +60,8 @@ public class RouteForm  extends JPanel
         constraint.ipadx = 0;
         constraint.ipady = 0;
         constraint.gridheight = 1;
-        constraint.gridwidth = 1;
-        constraint.insets = new Insets(12,0,0,150);
+        constraint.gridwidth = 2;
+        constraint.insets = new Insets(12,0,0,50);
 
 
         /* __________DRIVER__________ */
@@ -68,6 +71,7 @@ public class RouteForm  extends JPanel
         
         
         constraint.anchor = GridBagConstraints.LINE_START;
+        constraint.gridwidth = 2;
         constraint.gridy = 0;
         constraint.gridx = 0;
 		add(driverLabel , constraint);
@@ -79,7 +83,7 @@ public class RouteForm  extends JPanel
         constraint.anchor = GridBagConstraints.CENTER;
         constraint.ipadx = 75;
         constraint.gridy = 0;
-        constraint.gridx = 1;
+        constraint.gridx = 2;
         add(driverSelect, constraint);
 
         /* ___________TRUCK___________ */
@@ -89,6 +93,7 @@ public class RouteForm  extends JPanel
         
         constraint.anchor = GridBagConstraints.LINE_START;
         constraint.ipadx = 0;
+        constraint.gridwidth = 2;
         constraint.gridy = 1;
         constraint.gridx = 0;
 		add(truckLabel , constraint);
@@ -100,7 +105,7 @@ public class RouteForm  extends JPanel
         constraint.anchor = GridBagConstraints.CENTER;
         constraint.ipadx = 75;
         constraint.gridy = 1;
-        constraint.gridx = 1;
+        constraint.gridx = 2;
         add(truckIDSelect, constraint);
         
         /* _________SHIPPMENT_________ */
@@ -110,6 +115,7 @@ public class RouteForm  extends JPanel
 
         constraint.anchor = GridBagConstraints.FIRST_LINE_START;
         constraint.ipadx = 0;
+        constraint.gridwidth = 2;
         constraint.gridy = 2;
         constraint.gridx = 0;
         add(shippmentLabel, constraint);
@@ -122,17 +128,28 @@ public class RouteForm  extends JPanel
         constraint.anchor = GridBagConstraints.CENTER;
         constraint.ipadx = 75;
         constraint.gridy = 2;
-        constraint.gridx = 1;
+        constraint.gridx = 2;
         add(shippmentSelect, constraint);
 
         /* _________ADD BUTTON_________ */
         addButton = new JButton("Add Route");
         addButton.addActionListener(event -> addRoute(form));
+
         constraint.anchor = GridBagConstraints.LAST_LINE_START;
         constraint.ipadx = 0;
         constraint.gridy = 3;
         constraint.gridx = 0;
         add(addButton, constraint);
+
+        /* _________CANCEL BUTTON_________ */
+        cancelButton = new JButton("Cancel");
+        cancelButton.addActionListener(event -> cancel(form));
+
+        constraint.anchor = GridBagConstraints.PAGE_END;
+        constraint.ipadx = 0;
+        constraint.gridy = 3;
+        constraint.gridx = 4;
+        add(cancelButton, constraint);
 
 		setVisible(true);
 
@@ -140,7 +157,7 @@ public class RouteForm  extends JPanel
 	}
 
 
-	public void addRoute(HideForm form)
+	public void addRoute(HandleForm form)
 	{
         if(shippmentSelect.isSelectionEmpty())
         {            
@@ -153,14 +170,13 @@ public class RouteForm  extends JPanel
             "\nTruck: " + truckIDSelect.getSelectedItem() +
             "\nSelected items: " + shippmentSelect.getSelectedValuesList() + "\n");
 
-            try
-            {
-                form.hideForm();
-            }
-            catch (Exception e) {
-                e.printStackTrace();
-            }
+            form.close();
         }
 	}
+
+    public void cancel(HandleForm form)
+    {
+        form.close();
+    }
 }
 

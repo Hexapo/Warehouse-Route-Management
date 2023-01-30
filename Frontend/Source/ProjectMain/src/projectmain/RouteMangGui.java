@@ -3,11 +3,8 @@ package projectmain;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.SpringLayout.Constraints;
-import javax.swing.Box;
 import javax.swing.JButton;
 
-import javafx.event.ActionEvent;
 import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.GridBagLayout;
@@ -17,7 +14,7 @@ import java.awt.Color;
 
 public class RouteMangGui extends JPanel
 {
-    private Route route;    // Route data: comes from backend
+    private Routes routes;    // Route data: comes from backend
 
     private JTable routeTable;
     private JScrollPane routesScroll;
@@ -30,10 +27,10 @@ public class RouteMangGui extends JPanel
 
     RouteForm form;
     
-    /* interface for the method for exit the form */
-    public interface HideForm {
+    /* interface for the methods that will execute inside the form */
+    public interface HandleForm {
     
-        void hideForm();
+        void close();
         
     }
 
@@ -42,10 +39,10 @@ public class RouteMangGui extends JPanel
         super(new GridBagLayout());
  
         /* create route object */
-        route = new Route();
+        routes = new Routes();
         
         /* table to display route data */
-        routeTable = new JTable(route.getData(), route.getColumnTitles());
+        routeTable = new JTable(routes.getRoutesAsFullObject(), routes.getAllColumnTitles());
         
         /* initialize scroll */
         routesScroll = new JScrollPane(routeTable);
@@ -97,10 +94,11 @@ public class RouteMangGui extends JPanel
         this.add(saveRoute, constraint);
     }
 
-    public class Form implements HideForm
+    /* implements the accept behave and cancel behave */
+    public class Form implements HandleForm
     {
         @Override
-        public void hideForm()
+        public void close()
         {
             remove(form);
             routePanel.setVisible(true);

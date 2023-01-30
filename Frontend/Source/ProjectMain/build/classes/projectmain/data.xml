@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Routes>
+    <Route>
+        <id>1</id> 
+        <driver>Valilis</driver>
+        <truckID>100</truckID>
+        <shippment>shippment 1-10</shippment>
+        <status>Ready</status>
+    </Route>
+    <Route>
+        <id>2</id> 
+        <driver>Andreas</driver>
+        <truckID>100</truckID>
+        <shippment>shippment 1-10</shippment>
+        <status>Ready</status>
+    </Route>
+    <Route>
+        <id>3</id> 
+        <driver>Tasos</driver>
+        <truckID>120</truckID>
+        <shippment>shippment 15-20</shippment>
+        <status>Shipped</status>
+    </Route>
+    <Route>
+        <id>4</id> 
+        <driver>Kostas</driver>
+        <truckID>130</truckID>
+        <shippment>shippment 21-26</shippment>
+        <status>Loading Truck...</status>
+    </Route>
+    <Route>
+        <id>5</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>6</id> 
+        <driver>Xrhstos</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Shipped</status>
+    </Route>
+    <Route>
+        <id>7</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>8</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>9</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>10</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>11</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>12</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>13</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>14</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>15</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>16</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>17</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>18</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>19</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>20</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>21</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>22</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>23</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>24</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>25</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>26</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>27</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>28</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>29</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>30</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>31</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>32</id> 
+        <driver>Vaggelis</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+    <Route>
+        <id>33</id> 
+        <driver>Kostas</driver>
+        <truckID>112</truckID>
+        <shippment>shippment 27-36</shippment>
+        <status>Transporting...</status>
+    </Route>
+</Routes>
