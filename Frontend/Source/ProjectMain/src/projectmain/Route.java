@@ -1,5 +1,7 @@
 package projectmain;
 
+import java.util.ArrayList;
+
 import javax.xml.bind.annotation.*;
 
 @XmlRootElement
@@ -8,23 +10,43 @@ public class Route
     private int id;
     private String driver;
     private int truckID;
-    private String shippment; 
+    private ArrayList <String>shippment; 
     private String status;
 
     Route()
     {
-        this.id = -1;
-        this.driver = "None";
-        this.truckID = -1;
-        this.shippment = "None";
-        this.status = "Uknown";
+        shippment = new ArrayList<String>();
+
+        id = -1;
+        driver = "None";
+        truckID = -1;
+        shippment.add("None");
+        status = "Uknown";
     }
-    Route(int id, String driver, int truckID, String shippment, String status)
+    Route(String driver, int truckID, ArrayList <String>shippment, String status)
+    {
+        this.id = -1;
+        this.driver = driver;
+        this.truckID = truckID;
+        this.shippment = shippment;
+        this.status = status;
+    }
+    Route(int id, String driver, int truckID, ArrayList <String>shippment, String status)
     {
         this.id = id;
         this.driver = driver;
         this.truckID = truckID;
         this.shippment = shippment;
+        this.status = status;
+    }
+    Route(int id, String driver, int truckID, String shippment, String status)
+    {
+        this.shippment = new ArrayList<String>();
+
+        this.id = id;
+        this.driver = driver;
+        this.truckID = truckID;
+        this.shippment.add(shippment);
         this.status = status;
     }
 
@@ -44,7 +66,7 @@ public class Route
         return truckID;
     }
 
-    public String getShippment()
+    public ArrayList<String> getShippment()
     {
         return shippment;
     }
@@ -70,7 +92,7 @@ public class Route
         this.truckID = truckID;
     }
 
-    public void setShippment(String shippment)
+    public void setShippment(ArrayList <String>shippment)
     {
         this.shippment = shippment;
     }

@@ -8,6 +8,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.ScrollPaneLayout;
+import javax.swing.table.DefaultTableModel;
 
 
 
@@ -29,7 +30,7 @@ public class RouteListGui extends JPanel
         routes = new Routes();
 
         /* Create table */
-        routeTable = new JTable(routes.getRoutesAsObject(), routes.getColumnTitles());
+        routeTable = new JTable(new DefaultTableModel(routes.getRoutesAsObject(), routes.getColumnTitles()));
 
         
         routeTable.setVisible(true);
@@ -66,5 +67,9 @@ public class RouteListGui extends JPanel
 
     }
 
-
+    public void updateTable()
+    {
+        routes.getRoutes();
+        routeTable.setModel(new DefaultTableModel(routes.getRoutesAsFullObject(), routes.getAllColumnTitles()));
+    }
 }

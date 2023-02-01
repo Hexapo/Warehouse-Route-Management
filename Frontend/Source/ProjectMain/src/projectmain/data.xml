@@ -10,7 +10,7 @@
     <Route>
         <id>2</id> 
         <driver>Andreas</driver>
-        <truckID>100</truckID>
+        <truckID>101</truckID>
         <shippment>shippment 1-10</shippment>
         <status>Ready</status>
     </Route>

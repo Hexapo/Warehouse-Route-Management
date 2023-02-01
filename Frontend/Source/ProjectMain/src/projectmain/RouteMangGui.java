@@ -3,6 +3,10 @@ package projectmain;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import javax.swing.JButton;
 
 import java.awt.FlowLayout;
@@ -16,33 +20,38 @@ public class RouteMangGui extends JPanel
 {
     private Routes routes;    // Route data: comes from backend
 
+    /* table show the data */
     private JTable routeTable;
     private JScrollPane routesScroll;
+
     private JPanel routePanel;
     private JPanel buttonPanel;
 
     private JButton addRouteButton;
-    private JButton removeRoute;
-    private JButton saveRoute;
+    private JButton removeRouteButton;
+    private JButton saveRouteButton;
 
-    RouteForm form;
+    AddRouteForm addRouteForm;
+    RemoveRouteFrom removeRouteFrom;
     
     /* interface for the methods that will execute inside the form */
     public interface HandleForm {
     
-        void close();
+        void close(JPanel panel);
         
     }
 
     RouteMangGui()
     {
         super(new GridBagLayout());
- 
+
         /* create route object */
         routes = new Routes();
         
         /* table to display route data */
-        routeTable = new JTable(routes.getRoutesAsFullObject(), routes.getAllColumnTitles());
+        routeTable = new JTable(new DefaultTableModel(routes.getRoutesAsFullObject(), routes.getAllColumnTitles()));
+        
+
         
         /* initialize scroll */
         routesScroll = new JScrollPane(routeTable);
@@ -55,14 +64,17 @@ public class RouteMangGui extends JPanel
         
         /* initialize buttons */
         addRouteButton = new JButton("Add");
-        removeRoute = new JButton("Remove");
-        saveRoute = new JButton("Save changes");
+        removeRouteButton = new JButton("Remove");
+        saveRouteButton = new JButton("Save changes");
 
-        addRouteButton.addActionListener(event -> showFrom());
+        /* button action listeners */
+        addRouteButton.addActionListener(event -> addRouteFrom());
+        removeRouteButton.addActionListener(event -> removeRouteForm());
         
         /* add buttons to panel */
         buttonPanel.add(addRouteButton);
-        buttonPanel.add(removeRoute);
+        buttonPanel.add(removeRouteButton);
+        buttonPanel.add(saveRouteButton);
         
         /* add to route table and buttons to panel */
         routePanel.add(routesScroll, BorderLayout.CENTER);
@@ -85,31 +97,31 @@ public class RouteMangGui extends JPanel
         constraint.weightx = 0.5;
         constraint.insets = new Insets(0, 0, 0, 0);
         this.add(routePanel, constraint);
+    }
 
-
- 
-        constraint.fill = GridBagConstraints.NONE;
-        constraint.anchor = GridBagConstraints.LAST_LINE_END;
-        constraint.gridy = 1;
-        this.add(saveRoute, constraint);
+    public void updateTable()
+    {
+        routes.getRoutes();
+        routeTable.setModel(new DefaultTableModel(routes.getRoutesAsFullObject(), routes.getAllColumnTitles()));
     }
 
     /* implements the accept behave and cancel behave */
     public class Form implements HandleForm
     {
         @Override
-        public void close()
+        public void close(JPanel panel)
         {
-            remove(form);
+            remove(panel);
+            updateTable();
             routePanel.setVisible(true);
             updateUI();
         }
     }
  
 
-    public void showFrom()
+    public void addRouteFrom()
     {
-        form = new RouteForm(new Form());
+        addRouteForm = new AddRouteForm(new Form());
         GridBagConstraints constraint = new GridBagConstraints();
 
         constraint.fill = GridBagConstraints.HORIZONTAL;
@@ -123,7 +135,27 @@ public class RouteMangGui extends JPanel
 
         routePanel.setVisible(false);
 
-        add(form, constraint);
+        add(addRouteForm, constraint);
+        updateUI();
+    }
+
+    public void removeRouteForm()
+    {
+        removeRouteFrom = new RemoveRouteFrom(routes, new Form());
+
+        routePanel.setVisible(false);
+
+        GridBagConstraints constraint = new GridBagConstraints();
+
+        constraint.fill = GridBagConstraints.HORIZONTAL;
+        constraint.anchor = GridBagConstraints.PAGE_START;
+        constraint.gridwidth = 3;
+        constraint.gridy = 0;
+        constraint.gridx = 0;
+        constraint.weighty = 1;
+        constraint.weightx = 0.5;
+
+        add(removeRouteFrom, constraint);
         updateUI();
     }
 }

@@ -1,15 +1,14 @@
 package projectmain;
 
+import projectmain.RouteMangGui.HandleForm;
+
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
-import projectmain.RouteMangGui.HandleForm;
-
 import java.awt.*;
-import java.io.IOError;
-import java.lang.reflect.Method;
+import java.util.ArrayList;
 
-public class RouteForm  extends JPanel
+public class AddRouteForm  extends JPanel
 {
 	// Components of the Form
 	private TitledBorder panelTitle;
@@ -43,7 +42,7 @@ public class RouteForm  extends JPanel
     private String shippment[]
         = {"shipmment 1-10", "shippment 11-14", "shippment 15-20", "shippment 21-26", "shippment 27-36"};
             
-	RouteForm(HandleForm form)
+	AddRouteForm(HandleForm form)
     {
 		setLayout(new GridBagLayout());
 
@@ -143,7 +142,7 @@ public class RouteForm  extends JPanel
 
         /* _________CANCEL BUTTON_________ */
         cancelButton = new JButton("Cancel");
-        cancelButton.addActionListener(event -> cancel(form));
+        cancelButton.addActionListener(event -> form.close(this));
 
         constraint.anchor = GridBagConstraints.PAGE_END;
         constraint.ipadx = 0;
@@ -165,18 +164,25 @@ public class RouteForm  extends JPanel
         }
         else
         {
-            System.out.println("\n[POST]:\n" +
-            "Driver: " + driverSelect.getSelectedItem() +
-            "\nTruck: " + truckIDSelect.getSelectedItem() +
-            "\nSelected items: " + shippmentSelect.getSelectedValuesList() + "\n");
+            try
+            {
+                /* post */
+                new Routes().createRoute(new Route(
+                    driverSelect.getSelectedItem().toString(),                      // cast object to string
+                    Integer.parseInt(truckIDSelect.getSelectedItem().toString()),   // cast object to string -> to int
+                    new ArrayList<String>(shippmentSelect.getSelectedValuesList()), // cast List<String> to ArrayList<String>
+                    "Prepare shippment")
+                );
+                
+            }
+            catch (NumberFormatException e)
+            {
+                System.err.println("Truck id cannot parsed as integer number");
+                e.printStackTrace();
+            }
 
-            form.close();
+            form.close(this);
         }
 	}
-
-    public void cancel(HandleForm form)
-    {
-        form.close();
-    }
 }
 

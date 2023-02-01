@@ -343,11 +343,11 @@ public class MainGui extends javax.swing.JFrame {
        /* Create route list panel */
 
         routeList.setSize(jPanel2.getSize());
+        routeList.updateTable();
         hideAllSubPanels();
         routeList.setVisible(true);
 
         this.revalidate();
-        System.out.println("Route List Panel");
     }
 
 
@@ -368,11 +368,11 @@ public class MainGui extends javax.swing.JFrame {
     {
 
         routeMang.setSize(jPanel2.getSize());
+        routeMang.updateTable();
         hideAllSubPanels();
         routeMang.setVisible(true);
         
         this.revalidate();
-        System.out.println("Route Managment Panel\n\t" + evt);
     }
 
 
