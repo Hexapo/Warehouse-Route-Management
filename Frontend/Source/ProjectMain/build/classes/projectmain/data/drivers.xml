@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Drivers>
+    <Driver id = "10">
+        <firstName>Andreas</firstName>
+        <lastName>Andreas</lastName>
+    </Driver>
+    <Driver id = "20">
+        <firstName>Kostas</firstName>
+        <lastName>Kostas</lastName>
+    </Driver>
+    <Driver id = "30">
+        <firstName>Maria</firstName>
+        <lastName>Maria</lastName>
+    </Driver>
+    <Driver id = "40">
+        <firstName>Nikos</firstName>
+        <lastName>Nikos</lastName>
+    </Driver>
+    <Driver id = "50">
+        <firstName>Tasos</firstName>
+        <lastName>Tasos</lastName>
+    </Driver>
+    <Driver id = "60">
+        <firstName>Vaggelis</firstName>
+        <lastName>Vaggelis</lastName>
+    </Driver>
+    <Driver id = "70">
+        <firstName>Valilis</firstName>
+        <lastName>Valilis</lastName>
+    </Driver>
+    <Driver id = "80">
+        <firstName>Xrhstos</firstName>
+        <lastName>Xrhstos</lastName>
+    </Driver>
+</Drivers>

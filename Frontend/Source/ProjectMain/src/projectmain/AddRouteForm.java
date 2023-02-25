@@ -1,12 +1,18 @@
 package projectmain;
 
+import projectmain.components.*;
+
 import projectmain.RouteMangGui.HandleForm;
+import projectmain.components.Driver;
+import projectmain.components.Drivers;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
+import javax.swing.plaf.basic.BasicComboBoxEditor;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Vector;
 
 public class AddRouteForm  extends JPanel
 {
@@ -15,7 +21,7 @@ public class AddRouteForm  extends JPanel
 
     /* driver */
 	private JLabel driverLabel;
-    private JComboBox<String> driverSelect;
+    private JComboBox driverSelect;
 
     /* truck */
 	private JLabel truckLabel;
@@ -32,9 +38,7 @@ public class AddRouteForm  extends JPanel
     private JButton cancelButton;
 
     /* DATA */
-    private String driver[]
-        = { "Vasilis", "Andreas", "Tasos", "Kostas",
-        "Vaggelis", "Xrhstos"};
+    private Drivers drivers;
     
     private String truckID[]
         = {"100", "101", "112", "120", "130"};
@@ -44,6 +48,9 @@ public class AddRouteForm  extends JPanel
             
 	AddRouteForm(HandleForm form)
     {
+
+        drivers = new Drivers();
+
 		setLayout(new GridBagLayout());
 
         /* panel title */
@@ -76,7 +83,28 @@ public class AddRouteForm  extends JPanel
 		add(driverLabel , constraint);
 
         /* driver selection */
-        driverSelect = new JComboBox<String>(driver);
+
+
+
+
+
+
+
+
+
+        
+        driverSelect = new JComboBox();
+        for (int index = 0; index < drivers.getDrivers().size(); index++) {
+            
+        }
+        for (int index=0; index < drivers.getDrivers().size(); index++)
+        {
+            driverSelect.addItem(drivers.getDrivers().get(index));
+            
+        }
+
+        driverSelect.setRenderer(new ComboBoxRenderer());
+
         driverSelect.setFont(new Font("Arial", Font.PLAIN, 15));
 
         constraint.anchor = GridBagConstraints.CENTER;
@@ -166,13 +194,14 @@ public class AddRouteForm  extends JPanel
         {
             try
             {
+                // System.out.println("driver select: " + ((Driver)driverSelect.getSelectedItem()).getId());
                 /* post */
-                new Routes().createRoute(new Route(
-                    driverSelect.getSelectedItem().toString(),                      // cast object to string
-                    Integer.parseInt(truckIDSelect.getSelectedItem().toString()),   // cast object to string -> to int
-                    new ArrayList<String>(shippmentSelect.getSelectedValuesList()), // cast List<String> to ArrayList<String>
-                    "Prepare shippment")
-                );
+                // new Routes().createRoute(new Route(
+                //     (Driver)driverSelect.getSelectedItem(),                      // cast object to string
+                //     Integer.parseInt(truckIDSelect.getSelectedItem().toString()),   // cast object to string -> to int
+                //     new ArrayList<String>(shippmentSelect.getSelectedValuesList()), // cast List<String> to ArrayList<String>
+                //     "Prepare shippment")
+                // );
                 
             }
             catch (NumberFormatException e)
@@ -186,3 +215,17 @@ public class AddRouteForm  extends JPanel
 	}
 }
 
+class ComboBoxRenderer extends DefaultListCellRenderer
+{
+    @Override
+    public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
+    {
+        if (value instanceof Driver)
+        {
+            value = ((Driver)value).getFirstName() + " " + ((Driver)value).getLastName();
+        }
+        super.getListCellRendererComponent(list, value, index, isSelected, cellHasFocus);
+        return this;
+    }
+     
+}

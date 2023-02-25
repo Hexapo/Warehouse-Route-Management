@@ -7,10 +7,15 @@ package projectmain;
 
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.Dimension;
+import java.awt.BorderLayout;
 
 import javax.swing.GroupLayout;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Border;
 
 
 
@@ -63,7 +68,7 @@ public class MainGui extends javax.swing.JFrame {
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                RouteLPanelMouseClicked(evt);
+                RouteLPanelMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 RouteLPanelMouseEntered(evt);
@@ -250,18 +255,21 @@ public class MainGui extends javax.swing.JFrame {
                 .addGap(51, 51, 51))
         );
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        // jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 613, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 488, Short.MAX_VALUE)
-        );
+        // javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        // jPanel2.setLayout(jPanel2Layout);
+        // jPanel2Layout.setHorizontalGroup(
+        //     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        //     .addGap(0, 613, Short.MAX_VALUE)
+        // );
+        // jPanel2Layout.setVerticalGroup(
+        //     jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        //     .addGap(0, 488, Short.MAX_VALUE)
+        // );
+
+        jPanel2.setLayout(new BorderLayout());
+
 
         jPanel3.setBackground(new java.awt.Color(221, 153, 51));
 
@@ -284,38 +292,32 @@ public class MainGui extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
+        
+        
 
-
-
-
-        /* Add route list in jPanel2 */
         routeList = new RouteListGui();
-        jPanel2.add(routeList);
 
-        /* Add route Management in jPanel2 */
         routeMang = new RouteMangGui();
-        jPanel2.add(routeMang);
+
+
+        /* show route list as default.
+         * showing a starting panel will set a default panel size */
+        RouteLPanelMouseClicked();
+
+
+        /* set frame layout */
+        BorderLayout layout = new BorderLayout();
+
+        this.setLayout(layout);
+
+        add(jPanel3, BorderLayout.PAGE_START);  // Top panel
+        add(jPanel2, BorderLayout.CENTER);      // content panel
+        add(jPanel1, BorderLayout.LINE_START);  // navigation panel
 
         pack();
+
+
+
     }// </editor-fold>//GEN-END:initComponents
 
     private void hideAllSubPanels()
@@ -338,16 +340,16 @@ public class MainGui extends javax.swing.JFrame {
         evt.getComponent().setBackground(Unclicked);
     }//GEN-LAST:event_RouteLPanelMouseExited
 
-    private void RouteLPanelMouseClicked(java.awt.event.MouseEvent evt)
+    private void RouteLPanelMouseClicked()
     {
        /* Create route list panel */
 
-        routeList.setSize(jPanel2.getSize());
+        // routeList.setSize(jPanel2.getSize());
+        jPanel2.add(routeList, BorderLayout.CENTER);
         routeList.updateTable();
         hideAllSubPanels();
         routeList.setVisible(true);
 
-        this.revalidate();
     }
 
 
@@ -367,12 +369,11 @@ public class MainGui extends javax.swing.JFrame {
     private void RouteMangPanelMouseClicked(java.awt.event.MouseEvent evt)
     {
 
-        routeMang.setSize(jPanel2.getSize());
+        // routeMang.setSize(jPanel2.getSize());
+        jPanel2.add(routeMang, BorderLayout.CENTER);
         routeMang.updateTable();
         hideAllSubPanels();
         routeMang.setVisible(true);
-        
-        this.revalidate();
     }
 
 

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Shippments>
+    <Shipment id="1">
+        <barcode>0123456789101</barcode>
+        <code>700-8802T09</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="2">
+        <barcode>120940037809</barcode>
+        <code>700-8802T10</code>
+        <title>Samsung LF24T350FHRXEN IPS Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 5ms GTG</title>
+    </Shipment>
+    <Shipment id="3">
+        <barcode>172425201793 </barcode>
+        <code>700-8802T11</code>
+        <title>Dell G2722HS IPS Gaming Monitor 27" FHD 1920x1080 165Hz με Χρόνο Απόκρισης 1ms GTG</title>
+    </Shipment>
+    <Shipment id="4">
+        <barcode>135564939129</barcode>
+        <code>700-8802T12</code>
+        <title>Dell S2721HN IPS Monitor 27" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="5">
+        <barcode>650894769100</barcode>
+        <code>700-8802T13</code>
+        <title>Dell S2421HN IPS Monitor 23.8" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="6">
+        <barcode>246731487569</barcode>
+        <code>700-8802T14</code>
+        <title>LG 24GN650-B IPS HDR Gaming Monitor 24" FHD 1920x1080 144Hz με Χρόνο Απόκρισης 1ms GTG</title>
+    </Shipment>
+    <Shipment id="7">
+        <barcode>427166114579</barcode>
+        <code>700-8802T15</code>
+        <title>Xiaomi Mi Desktop Monitor 1C IPS Monitor 23.8" FHD 1920x1080 με Χρόνο Απόκρισης 6ms GTG</title>
+    </Shipment>
+    <Shipment id="8">
+        <barcode>764346024614</barcode>
+        <code>700-8802T16</code>
+        <title>AOC C27G2ZU/BK VA Curved Gaming Monitor 27" FHD 1920x1080 240Hz με Χρόνο Απόκρισης 1ms GTG</title>
+    </Shipment>
+    <Shipment id="9">
+        <barcode>340161308789</barcode>
+        <code>700-8802T17</code>
+        <title>Dell P2722H IPS Monitor 27" FHD 1920x1080 με Χρόνο Απόκρισης 8ms GTG</title>
+    </Shipment>
+    <Shipment id="10">
+        <barcode>720722098092</barcode>
+        <code>700-8802T18</code>
+        <title>AOC CQ27G2U VA Curved Gaming Monitor 27" QHD 2560x1440 144Hz με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="11">
+        <barcode>007553439518 </barcode>
+        <code>700-8802T19</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="12">
+        <barcode>388853909244</barcode>
+        <code>700-8802T20</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="13">
+        <barcode>869530440202</barcode>
+        <code>700-8802T21</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="14">
+        <barcode>389388547275</barcode>
+        <code>700-8802T22</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="15">
+        <barcode>814144695870</barcode>
+        <code>700-8802T23</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="16">
+        <barcode>941001622038</barcode>
+        <code>700-8802T24</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="17">
+        <barcode>703175433625</barcode>
+        <code>700-8802T25</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="18">
+        <barcode>413038595071</barcode>
+        <code>700-8802T26</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="19">
+        <barcode>352061873734</barcode>
+        <code>700-8802T27</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+    <Shipment id="20">
+        <barcode>633880812327</barcode>
+        <code>700-8802T28</code>
+        <title>Samsung C24F390FHR VA Curved Monitor 24" FHD 1920x1080 με Χρόνο Απόκρισης 4ms GTG</title>
+    </Shipment>
+</shippments>

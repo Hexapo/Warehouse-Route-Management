@@ -1,5 +1,7 @@
 package projectmain;
 
+import projectmain.components.*;
+
 import projectmain.RouteMangGui.HandleForm;
 
 import java.awt.BorderLayout;
@@ -52,12 +54,12 @@ public class RemoveRouteFrom extends JPanel
             {
                 switch(column)
                 {
-                case 0:     // first column. recognize boolean and turn first column into check box
-                    return Boolean.class;
-                // case 1:     // second column. With this definition is avoided the cast in removeRoute method
-                //     return Integer.class;
-                default:    // other columns
-                    return String.class;
+                    case 0:     // first column. recognize boolean and turn first column into check box
+                        return Boolean.class;
+                    // case 1:     // second column. With this definition is avoided the cast in removeRoute method
+                    //     return Integer.class;
+                    default:    // other columns
+                        return String.class;
                 }
             }
         };

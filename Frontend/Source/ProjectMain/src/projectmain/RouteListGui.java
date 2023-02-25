@@ -1,14 +1,18 @@
 package projectmain;
 
-
+import projectmain.components.*;
 import java.awt.Dimension;
+import java.awt.BorderLayout;
 import javax.swing.GroupLayout;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.ScrollPaneLayout;
+import javax.swing.border.EmptyBorder;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 
 
@@ -17,7 +21,10 @@ public class RouteListGui extends JPanel
     private Routes routes;    // Route data: comes from backend
     /* swing components */
     private javax.swing.JTable routeTable;
-    private javax.swing.JScrollPane scrollPane;
+    private javax.swing.JDialog shipmentDialoge;
+    private javax.swing.JTable shipmentTable;
+    private javax.swing.JScrollPane routeScrollPane;
+    private javax.swing.JScrollPane shipmentscrollPane;
 
 
     /*
@@ -25,51 +32,36 @@ public class RouteListGui extends JPanel
      */
     public RouteListGui()
     {
-        super();
+        super(new BorderLayout());
 
         routes = new Routes();
 
-        /* Create table */
+        /* Create route table */
         routeTable = new JTable(new DefaultTableModel(routes.getRoutesAsObject(), routes.getColumnTitles()));
-
-        
-        routeTable.setVisible(true);
         routeTable.setEnabled(false);
         
         /* create scrollpane for the table */
-        scrollPane = new JScrollPane(routeTable, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        routeTable.setFillsViewportHeight(true);
-        // scrollPane = new JScrollPane(routeTable);
+        routeScrollPane = new JScrollPane(routeTable);
+        routeScrollPane.setLayout(new ScrollPaneLayout());
+ 
 
 
-        scrollPane.setLayout(new ScrollPaneLayout());
-
-
-
-        GroupLayout layout = new GroupLayout(this);
-        layout.setAutoCreateGaps(true);
+        add(routeScrollPane, BorderLayout.CENTER);
+        
 
         this.setBackground(new java.awt.Color(103,7,78));
 
-        layout.setAutoCreateContainerGaps(true);
+        revalidate();
 
-        layout.setHorizontalGroup(layout.createSequentialGroup()
-            .addComponent(scrollPane)
-            .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(
-            GroupLayout.Alignment.LEADING)
-            )));
-
-        layout.setVerticalGroup(layout.createSequentialGroup()
-            .addComponent(scrollPane));
-
-        this.setLayout(layout);
-
+        TransportVehicles vehicles = new TransportVehicles();
+        vehicles.updateData();
     }
 
     public void updateTable()
     {
-        routes.getRoutes();
-        routeTable.setModel(new DefaultTableModel(routes.getRoutesAsFullObject(), routes.getAllColumnTitles()));
+        routes.updateData();
+        routeTable.setModel(new DefaultTableModel(routes.getRoutesAsObject(), routes.getColumnTitles()));
     }
 }
+
+

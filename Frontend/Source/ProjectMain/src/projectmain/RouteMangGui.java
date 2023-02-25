@@ -1,8 +1,10 @@
 package projectmain;
 
+import projectmain.components.*;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.ScrollPaneLayout;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +24,7 @@ public class RouteMangGui extends JPanel
 
     /* table show the data */
     private JTable routeTable;
-    private JScrollPane routesScroll;
+    private JScrollPane routeScroll;
 
     private JPanel routePanel;
     private JPanel buttonPanel;
@@ -54,11 +56,12 @@ public class RouteMangGui extends JPanel
 
         
         /* initialize scroll */
-        routesScroll = new JScrollPane(routeTable);
+        routeScroll = new JScrollPane(routeTable);
+        routeScroll.setLayout(new ScrollPaneLayout());
         
         /* initialize sub-panels */
         routePanel = new JPanel(new BorderLayout());
-        buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 80, 6));
+        buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 14, 6));
 
         buttonPanel.setBackground(new Color(103,7,78));
         
@@ -77,7 +80,7 @@ public class RouteMangGui extends JPanel
         buttonPanel.add(saveRouteButton);
         
         /* add to route table and buttons to panel */
-        routePanel.add(routesScroll, BorderLayout.CENTER);
+        routePanel.add(routeScroll, BorderLayout.CENTER);
         routePanel.add(buttonPanel, BorderLayout.PAGE_END);
         
         /* set color the entire panel */
@@ -101,7 +104,7 @@ public class RouteMangGui extends JPanel
 
     public void updateTable()
     {
-        routes.getRoutes();
+        routes.updateData();
         routeTable.setModel(new DefaultTableModel(routes.getRoutesAsFullObject(), routes.getAllColumnTitles()));
     }
 
