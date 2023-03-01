@@ -1,8 +1,3 @@
-/*
-====A company route
-*/
-
-
 package projectmain.components;
 
 import javax.xml.bind.annotation.*;
