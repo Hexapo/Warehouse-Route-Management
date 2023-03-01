@@ -1,3 +1,7 @@
+/*
+=====List of all the company's transport vehicles
+*/
+
 package projectmain.components;
 
 import java.io.File;
@@ -22,6 +26,7 @@ public class TransportVehicles
 
     public void updateData()
     {
+        System.out.println("\nparsing 'Transport Vehicles' xml file");
         File xmlFile = null;
         try
         {
@@ -47,7 +52,7 @@ public class TransportVehicles
 
         try
         {
-            System.out.println("parsing vehicles xml file");
+            
             vehicles.clear();
 
             
@@ -86,9 +91,9 @@ public class TransportVehicles
                             
                         /* add route into a list */
                         vehicles.add(vehicle);
-    
-                        System.out.println(vehicle.getId());
-                        System.out.println(vehicle.getLicencePlate());
+                        
+                        //System.out.println(vehicle.getId());
+                        //System.out.println(vehicle.getLicencePlate());
                     
                 }
             }

@@ -1,3 +1,7 @@
+/*
+=====List of all shipments
+*/
+
 package projectmain.components;
 
 import java.io.File;
@@ -58,6 +62,7 @@ public class Shipments
 
     public void UpdateData()
     {
+        System.out.println("\nparsing 'Shipments' xml file");
         File xmlFile = null;
         try
         {
@@ -83,7 +88,7 @@ public class Shipments
 
         try
         {
-            System.out.println("parsing xml file");
+            
             shipmentList.clear();
 
             
@@ -124,11 +129,11 @@ public class Shipments
                             
                         /* add route into a list */
                         shipmentList.add(shipment);
-    
-                        System.out.println(shipment.getId());
-                        System.out.println(shipment.getBarcode());
-                        System.out.println(shipment.getCode());
-                        System.out.println(shipment.getTitle());
+                        
+                        //System.out.println(shipment.getId());
+                        //System.out.println(shipment.getBarcode());
+                        //System.out.println(shipment.getCode());
+                        //System.out.println(shipment.getTitle());
                     
                 }
             }

@@ -1,3 +1,7 @@
+/*
+=====Shipment to be transported
+*/
+
 package projectmain.components;
 
 public class Shipment

@@ -41,8 +41,8 @@ public class MainGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        RouteLPanel = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();//left side panel, contains the clicable buttons
+        RouteListPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         RouteMangPanel = new javax.swing.JPanel();
@@ -60,21 +60,23 @@ public class MainGui extends javax.swing.JFrame {
 
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
+        
         jPanel1.setBackground(new java.awt.Color(7,78,103));
-
-        RouteLPanel.setBackground(new java.awt.Color(103,7,78));
-        RouteLPanel.addMouseListener(new java.awt.event.MouseAdapter()
+        
+        //======================Setup "Route List" button======================
+        RouteListPanel.setBackground(new java.awt.Color(103,7,78));
+        //method that changes the mouse shape when hovering,clicking or hovering away from RouteList button
+        RouteListPanel.addMouseListener(new java.awt.event.MouseAdapter()
         {
             public void mouseClicked(java.awt.event.MouseEvent evt)
             {
-                RouteLPanelMouseClicked();
+                RouteListPanelMouseClicked();
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                RouteLPanelMouseEntered(evt);
+                RouteListPanelMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                RouteLPanelMouseExited(evt);
+                RouteListPanelMouseExited(evt);
             }
         });
 
@@ -83,28 +85,28 @@ public class MainGui extends javax.swing.JFrame {
         jLabel2.setText("Route List");
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectmain/shopping-list-6.png"))); // NOI18N
-
-        javax.swing.GroupLayout RouteLPanelLayout = new javax.swing.GroupLayout(RouteLPanel);
-        RouteLPanel.setLayout(RouteLPanelLayout);
-        RouteLPanelLayout.setHorizontalGroup(
-            RouteLPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RouteLPanelLayout.createSequentialGroup()
+        //Create the route list button layout
+        javax.swing.GroupLayout RouteListPanelLayout = new javax.swing.GroupLayout(RouteListPanel);
+        RouteListPanel.setLayout(RouteListPanelLayout);
+        RouteListPanelLayout.setHorizontalGroup(
+            RouteListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RouteListPanelLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        RouteLPanelLayout.setVerticalGroup(
-            RouteLPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(RouteLPanelLayout.createSequentialGroup()
+        RouteListPanelLayout.setVerticalGroup(
+            RouteListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(RouteListPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(RouteLPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(RouteListPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-
+        //======================Setup "Route Management" button======================
         RouteMangPanel.setBackground(new java.awt.Color(103,7,78));
         RouteMangPanel.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -145,6 +147,7 @@ public class MainGui extends javax.swing.JFrame {
             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
+        //======================Setup "Administrator Panel" button======================
         AdminPanel.setBackground(new java.awt.Color(103,7,78));
         AdminPanel.addMouseListener(new java.awt.event.MouseAdapter()
         {
@@ -234,7 +237,7 @@ public class MainGui extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(ExitPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(RouteLPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(RouteListPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(RouteMangPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(AdminPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addContainerGap(37, Short.MAX_VALUE))))
@@ -245,7 +248,7 @@ public class MainGui extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(jLabel1)
                 .addGap(42, 42, 42)
-                .addComponent(RouteLPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(RouteListPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(RouteMangPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(26, 26, 26)
@@ -302,7 +305,7 @@ public class MainGui extends javax.swing.JFrame {
 
         /* show route list as default.
          * showing a starting panel will set a default panel size */
-        RouteLPanelMouseClicked();
+        RouteListPanelMouseClicked();
 
 
         /* set frame layout */
@@ -327,20 +330,20 @@ public class MainGui extends javax.swing.JFrame {
     }
 
     /* _____________Route List Panel Functions_____________ */
-    private void RouteLPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RouteLPanelMouseEntered
+    private void RouteListPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RouteListPanelMouseEntered
         Color ClickedColor = new Color(5,135,138);
         
-        RouteLPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        RouteListPanel.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         evt.getComponent().setBackground(ClickedColor);
         
-    }//GEN-LAST:event_RouteLPanelMouseEntered
+    }//GEN-LAST:event_RouteListPanelMouseEntered
 
-    private void RouteLPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RouteLPanelMouseExited
+    private void RouteListPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RouteListPanelMouseExited
         Color Unclicked = new Color(103,7,78); 
         evt.getComponent().setBackground(Unclicked);
-    }//GEN-LAST:event_RouteLPanelMouseExited
+    }//GEN-LAST:event_RouteListPanelMouseExited
 
-    private void RouteLPanelMouseClicked()
+    private void RouteListPanelMouseClicked()
     {
        /* Create route list panel */
 
@@ -449,7 +452,7 @@ public class MainGui extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel AdminPanel;
     private javax.swing.JPanel ExitPanel;
-    private javax.swing.JPanel RouteLPanel;
+    private javax.swing.JPanel RouteListPanel;
     private javax.swing.JPanel RouteMangPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

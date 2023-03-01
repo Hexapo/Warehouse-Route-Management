@@ -1,3 +1,7 @@
+/*
+=====Generic user, can be admin,manager or driver
+*/
+
 package projectmain.components;
 
 abstract class User

@@ -97,6 +97,7 @@ public class Routes
 
     public void updateData()
     {
+        System.out.println("\nparsing 'Routes' xml file");
         /* _________________get data_________________ */
         File xmlFile = null;
         try
@@ -123,7 +124,7 @@ public class Routes
 
         try
         {
-            System.out.println("get routes from xml file");
+            
             routeList.clear();
 
         
@@ -241,7 +242,7 @@ public class Routes
                         
                     /* add route into a list */
                     routeList.add(route);
-                    displayRoutes();
+                    //displayRoutes();
                 }
             }
         }

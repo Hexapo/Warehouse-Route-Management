@@ -1,3 +1,8 @@
+/*
+=====List of all drivers of the company
+*/
+
+
 package projectmain.components;
 
 import java.io.File;
@@ -29,6 +34,7 @@ public class Drivers
 
     public void updateData()
     {
+        System.out.println("\nparsing 'Drivers' xml file");
         File xmlFile = null;
         try
         {
@@ -54,7 +60,7 @@ public class Drivers
 
         try
         {
-            System.out.println("parsing xml file");
+            
             drivers.clear();
 
             
@@ -94,10 +100,10 @@ public class Drivers
                             
                         /* add route into a list */
                         drivers.add(driver);
-    
-                        System.out.println(driver.getId());
-                        System.out.println(driver.getFirstName());
-                        System.out.println(driver.getLastName());
+                        
+                        //System.out.println(driver.getId());
+                        //System.out.println(driver.getFirstName());
+                        //System.out.println(driver.getLastName());
                     
                 }
             }

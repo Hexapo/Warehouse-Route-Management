@@ -27,31 +27,34 @@ public class LoginGui extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
+        //Swing objects for the login window
+        jPanel2 = new javax.swing.JPanel();//Left half of window
         jLabel1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();//Right half of window
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        usernameTF = new javax.swing.JTextField();
-        passwordTF = new javax.swing.JPasswordField();
-        SigninBtn = new javax.swing.JButton();
+        usernameTF = new javax.swing.JTextField();//username input field
+        passwordTF = new javax.swing.JPasswordField();//password input field
+        SigninBtn = new javax.swing.JButton();//"Sign in" button
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);//this method closes the window when you press the x
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));//set color
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectmain/f.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/projectmain/f.png"))); //set image on left half of window
 
+        //Create the "welcome" text on jLabel5
         jLabel5.setBackground(new java.awt.Color(0, 51, 204));
         jLabel5.setFont(new java.awt.Font("Cambria", 2, 36)); // NOI18N
         jLabel5.setText("Welcome");
-
+        //Create the "Route management Application" text on jLabel6
         jLabel6.setFont(new java.awt.Font("Dialog", 2, 12)); // NOI18N
         jLabel6.setText("Route Managment Application");
 
+        //GroupLayout organises the labels in the panel2
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -79,7 +82,7 @@ public class LoginGui extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(22, 22, 22))
         );
-
+        //Set up the right half of log in window with jPanel3
         jPanel3.setBackground(new java.awt.Color(0, 102, 255));
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 32)); // NOI18N
@@ -103,12 +106,13 @@ public class LoginGui extends javax.swing.JFrame {
 
         SigninBtn.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         SigninBtn.setText("Sign in");
+        //Create an EventListener for the sign in button
         SigninBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 SigninBtnActionPerformed(evt);
             }
         });
-
+        //GroupLayout organises the labels in the panel3
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
