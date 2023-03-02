@@ -31,7 +31,8 @@ public class TransportVehicles
         try
         {
             /* for windows (needs check) */
-            xmlFile = new File("Frontend\\Source\\ProjectMain\\src\\projectmain\\data\\transportVehicles.xml");
+            //Frontend\\Source\\ProjectMain\\src\\projectmain\\data\\transportVehicles.xml
+            xmlFile = new File("C:\\Users\\babis\\Documents\\GitHub-projects\\Java-Projects\\Frontend\\Source\\ProjectMain\\src\\projectmain\\data\\transportVehicles.xml");
             System.out.println("does the file exists(windows path): " + xmlFile.exists());
         }
         catch(NullPointerException  ex1)

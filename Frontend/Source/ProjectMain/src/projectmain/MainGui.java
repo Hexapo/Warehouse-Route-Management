@@ -16,6 +16,8 @@ import javax.swing.SwingConstants;
 
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Border;
+import projectmain.components.Users;
+import projectmain.components.UsersObj;
 
 
 
@@ -323,10 +325,12 @@ public class MainGui extends javax.swing.JFrame {
 
     }// </editor-fold>//GEN-END:initComponents
 
+    AdminPanelGui admin = new AdminPanelGui();
     private void hideAllSubPanels()
     {
         routeList.setVisible(false);
         routeMang.setVisible(false);
+        admin.setVisible(false);
     }
 
     /* _____________Route List Panel Functions_____________ */
@@ -395,6 +399,16 @@ public class MainGui extends javax.swing.JFrame {
 
     private void AdminPanelMouseClicked(java.awt.event.MouseEvent evt) {
         System.out.println("Administrator Panel\n\t" + evt);
+        
+        Users users = new Users();
+        users.readUsers();
+        /////////////////////////////////
+        
+        jPanel2.add(admin, BorderLayout.CENTER);
+        hideAllSubPanels();
+        admin.setVisible(true);
+        
+        
     }
 
     /* _____________Exit Panel Functions_____________ */

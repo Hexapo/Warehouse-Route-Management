@@ -39,7 +39,8 @@ public class Drivers
         try
         {
             /* for windows (needs check) */
-            xmlFile = new File("Frontend\\Source\\ProjectMain\\src\\projectmain\\data\\drivers.xml");
+            //Frontend\\Source\\ProjectMain\\src\\projectmain\\data\\drivers.xml
+            xmlFile = new File("C:\\Users\\babis\\Documents\\GitHub-projects\\Java-Projects\\Frontend\\Source\\ProjectMain\\src\\projectmain\\data\\drivers.xml");
             System.out.println("does the file exists(windows path): " + xmlFile.exists());
         }
         catch(NullPointerException  ex1)

@@ -103,7 +103,8 @@ public class Routes
         try
         {
             /* for windows (needs check) */
-            xmlFile = new File("Frontend\\Source\\ProjectMain\\src\\projectmain\\data\\routes.xml");
+            //Frontend\\Source\\ProjectMain\\src\\projectmain\\data\\routes.xml
+            xmlFile = new File("C:\\Users\\babis\\Documents\\GitHub-projects\\Java-Projects\\Frontend\\Source\\ProjectMain\\src\\projectmain\\data\\routes.xml");
             System.out.println("does the file exists(windows path): " + xmlFile.exists());
         }
         catch(NullPointerException  ex1)
