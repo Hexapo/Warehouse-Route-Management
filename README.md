@@ -2,15 +2,14 @@
 
 This is a sample project for the Route Management of a Warehouse.
 
-Frontend: Java Swing
+Frontend: Java Swing Java 1.8
 
-Backend: Java 8 [https://www.oracle.com/java/technologies/java8.html]
 
-ORM: Hybernate 5.6 [https://hibernate.org/orm/]
+Backend API: [**Django-4.1.6**](https://www.djangoproject.com/) | [**djangorestframework-3.14.0**](https://www.django-rest-framework.org/) | [**python-3.11.3**](https://www.python.org/downloads/release/python-3113/)
 
-Backend API: JAX-RS
+ORM: [**Django**](https://docs.djangoproject.com/en/4.1/ref/migration-operations/)
 
-Database: MariaDB v10.4.25, with XAMPP 8.1.10
+Database: SQLite
 
 # Project Members:<br>
   [**Charalampos Kostantakopoulos**](https://github.com/XaralamposKonst) <br>
